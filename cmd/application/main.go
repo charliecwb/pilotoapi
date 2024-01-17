@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"pilotoAPI/internal/app/domain/command"
 
 	"github.com/labstack/echo/v4"
 	appEnv "pilotoAPI/internal/app/adapters"
@@ -28,7 +29,8 @@ func main() {
 	//repo
 	repo := repository.NewProductRepository(db)
 	//services
-	svcProduct := appEnv.NewProductService(repo)
+	productCmmd := command.NewProductCommand(repo)
+	svcProduct := appEnv.NewProductService(productCmmd)
 	//handler
 	handler := routes.NewHandler(svcProduct, log.Default())
 

@@ -1,0 +1,25 @@
+version: "3.9"
+
+volumes:
+  mysql-data:
+
+networks:
+  default:
+    external: true
+    name: app-default
+
+services:
+  mysql:
+    container_name: mysql
+    image: "mysql:latest"
+    env_file: .env
+    restart: always
+    command: --init-file /docker-entrypoint-initdb.d/initdb.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${APP_DB_PASSWORD}
+      MYSQL_DATABASE: ${APP_DB_NAME}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./deployments/docker-compose/initdb.sql:/docker-entrypoint-initdb.d/initdb.sql

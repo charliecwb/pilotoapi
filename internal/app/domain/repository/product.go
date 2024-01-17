@@ -20,6 +20,7 @@ func (t *Product) TableName() string {
 	return "product"
 }
 
+//go:generate mockgen -source=product.go -destination=./../mocks/product_repo.go -package=repository
 type ProductRepository interface {
 	Begin() *gorm.DB
 	Commit() error
