@@ -1,12 +1,13 @@
 package server
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
 )
 
 type HttpServer interface {
-	Serve(*fiber.App, uint16) error
+	Serve(*echo.Echo, string) error
 }
 
 type HttpServerSvc struct {
