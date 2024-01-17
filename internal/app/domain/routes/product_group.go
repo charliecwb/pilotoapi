@@ -1,13 +1,15 @@
 package routes
 
-import "github.com/gofiber/fiber/v2"
+import (
+	"github.com/labstack/echo/v4"
+)
 
-func ProductAPIGroup(appFiber fiber.Router, app *Handler) {
-	api := appFiber.Group("/product")
+func ProductAPIGroup(appEcho *echo.Group, app *Handler) {
+	api := appEcho.Group("/product")
 
-	api.Get("/:id", app.fetchProduct)
-	api.Get("/", app.fetchAllProducts)
-	api.Post("/", app.createProduct)
-	api.Put("/:id", app.updateProduct)
-	api.Delete("/:id", app.deleteProduct)
+	api.GET("/:id", app.fetchProduct)
+	api.GET("/", app.fetchAllProducts)
+	api.POST("/", app.createProduct)
+	api.PUT("/:id", app.updateProduct)
+	api.DELETE("/:id", app.deleteProduct)
 }

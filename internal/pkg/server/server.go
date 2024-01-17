@@ -1,18 +1,20 @@
 package server
 
 import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
-func (s *HttpServerSvc) Serve(app *fiber.App, url string) error {
-	app.Use(logger.New())
-	app.Use(cors.New())
+func (s *HttpServerSvc) Serve(app *echo.Echo, url string) error {
+	app.Use(middleware.Logger())
+	app.Use(middleware.Recover())
+	app.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
+	}))
+	//app.Use(func(c *echo.Echo) error {
+	//	return c.SendStatus(fiber.StatusNotFound)
+	//})
 
-	app.Use(func(c *fiber.Ctx) error {
-		return c.SendStatus(fiber.StatusNotFound)
-	})
-
-	return app.Listen(url)
+	return app.Start(url)
 }

@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/gofiber/fiber/v2"
 	"log"
+
+	"github.com/labstack/echo/v4"
 	appEnv "pilotoAPI/internal/app/adapters"
 	"pilotoAPI/internal/app/domain/repository"
 	"pilotoAPI/internal/app/domain/routes"
 	"pilotoAPI/internal/app/domain/routes/routedefinition"
-	"pilotoAPI/internal/app/services"
 	"pilotoAPI/internal/pkg/server"
 )
 
@@ -27,14 +27,15 @@ func main() {
 	}
 	//repo
 	repo := repository.NewProductRepository(db)
-	//service
-	svcProduct := services.NewProductService(repo)
+	//services
+	svcProduct := appEnv.NewProductService(repo)
 	//handler
 	handler := routes.NewHandler(svcProduct, log.Default())
-	app := fiber.New()
-	routedefinition.SetupHandlers(app, handler)
 
-	err = httpServer.Serve(app, fmt.Sprintf(":%d", env.AppPort))
+	ec := echo.New()
+	routedefinition.SetupHandlers(ec, handler)
+
+	err = httpServer.Serve(ec, fmt.Sprintf(":%d", env.AppPort))
 	if err != nil {
 		log.Fatal(fmt.Sprintf("failed to start server: %s", err.Error()))
 	}

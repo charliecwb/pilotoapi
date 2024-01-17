@@ -1,11 +1,11 @@
 package routedefinition
 
 import (
-	"github.com/gofiber/fiber/v2"
+	"github.com/labstack/echo/v4"
 	"pilotoAPI/internal/app/domain/routes"
 )
 
-func SetupHandlers(appFiber fiber.Router, app *routes.Handler) {
-	api := appFiber.Group("/api")
+func SetupHandlers(appEcho *echo.Echo, app *routes.Handler) {
+	api := appEcho.Group("/api")
 	routes.ProductAPIGroup(api, app)
 }
