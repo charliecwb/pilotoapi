@@ -7,7 +7,7 @@ import (
 )
 
 type HttpServer interface {
-	Serve(*echo.Echo, string) error
+	Serve(ec *echo.Echo, url string) error
 }
 
 type HttpServerSvc struct {

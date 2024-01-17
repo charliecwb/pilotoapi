@@ -1,0 +1,69 @@
+linters-settings:
+  lll:
+    line-length: 150
+
+linters:
+  disable-all: true
+  fast: false
+  enable:
+    - bidichk
+    - errcheck
+    - gosimple
+    - govet
+    - ineffassign
+    - staticcheck
+    - unused
+    - asciicheck
+    - bodyclose
+    - durationcheck
+    - errorlint
+    - exportloopref
+    - forcetypeassert
+    - funlen
+    - gocritic
+    - godot
+    - godox
+    - gofmt
+    - gofumpt
+    - goheader
+    - goimports
+    - gomnd
+    - gomoddirectives
+    - lll
+    - makezero
+    - misspell
+    - nakedret
+    - nilerr
+    - nilnil
+    - noctx
+    - nolintlint
+    - prealloc
+    - predeclared
+    - revive
+    - promlinter
+    - rowserrcheck
+    - stylecheck
+    - tagliatelle
+    - thelper
+    - tparallel
+    - unconvert
+    - unparam
+    - wastedassign
+    - tenv
+    - thelper
+    - tparallel
+    - wsl
+    - contextcheck
+    - errname
+    - nakedret
+    - typecheck
+
+issues:
+  exclude-rules:
+    - path: _test\.go
+      linters:
+        - funlen
+        - lll
+
+output:
+  format: "colored-line-number"
