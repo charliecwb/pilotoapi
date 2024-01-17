@@ -56,7 +56,6 @@ linters:
     - contextcheck
     - errname
     - nakedret
-    - typecheck
 
 issues:
   exclude-rules:
