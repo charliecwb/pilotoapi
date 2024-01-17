@@ -12,9 +12,6 @@ func (s *HttpServerSvc) Serve(app *echo.Echo, url string) error {
 		AllowOrigins: []string{"*"},
 		AllowMethods: []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE},
 	}))
-	//app.Use(func(c *echo.Echo) error {
-	//	return c.SendStatus(fiber.StatusNotFound)
-	//})
 
 	return app.Start(url)
 }

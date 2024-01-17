@@ -25,6 +25,7 @@ func (s *ProductCmmd) GetProduct(id int64) (*model.Product, error) {
 		Description: product.Description,
 		Price:       product.Price,
 		Quantity:    product.Quantity,
+		CreatedAt:   product.CreatedAt.Time,
 	}, nil
 }
 
@@ -42,6 +43,7 @@ func (s *ProductCmmd) GetProducts() ([]*model.Product, error) {
 			Description: product.Description,
 			Price:       product.Price,
 			Quantity:    product.Quantity,
+			CreatedAt:   product.CreatedAt.Time,
 		}
 	}
 
@@ -67,6 +69,7 @@ func (s *ProductCmmd) CreateProduct(product *model.Product) (*model.Product, err
 		Description: productDB.Description,
 		Price:       productDB.Price,
 		Quantity:    productDB.Quantity,
+		CreatedAt:   productDB.CreatedAt.Time,
 	}, nil
 }
 
@@ -90,6 +93,7 @@ func (s *ProductCmmd) UpdateProduct(product *model.Product) (*model.Product, err
 		Description: productDB.Description,
 		Price:       productDB.Price,
 		Quantity:    productDB.Quantity,
+		CreatedAt:   productDB.CreatedAt.Time,
 	}, nil
 }
 
