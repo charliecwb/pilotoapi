@@ -3,7 +3,10 @@ package server
 import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"pilotoAPI/internal/pkg/errors"
 )
+
+type ErrorResponse errors.ErrorResponse
 
 func (s *HttpServerSvc) Serve(app *echo.Echo, url string) error {
 	app.Use(middleware.Logger())

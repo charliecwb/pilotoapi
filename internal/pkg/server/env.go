@@ -8,7 +8,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-//nolint:tagliatelle // those are env names
 type Env struct {
 	DBHost     string `validate:"nonzero" mapstructure:"APP_DB_HOST"`
 	DBPort     uint16 `validate:"nonzero" mapstructure:"APP_DB_PORT"`

@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-	"pilotoAPI/internal/app/domain/command"
 
 	"github.com/labstack/echo/v4"
 	appEnv "pilotoAPI/internal/app/adapters"
+	"pilotoAPI/internal/app/domain/command"
 	"pilotoAPI/internal/app/domain/repository"
 	"pilotoAPI/internal/app/domain/routes"
 	"pilotoAPI/internal/app/domain/routes/routedefinition"
