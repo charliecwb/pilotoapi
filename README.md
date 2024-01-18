@@ -1,8 +1,12 @@
 # Pilotoapi
-Pilotoapi is a simple API to manage products from mysql database.
+Pilotoapi is a simple API written in [Go](#Golang) to manage products from [MySQL](#MySQL) database.
 
-## Installation
-Install docker and docker-compose
+## Setup
+- Use `make` to build and run
+- [Go 1.21](#Golang)
+- [Docker](#Docker)
+- [Docker Compose](#Docker)
+- [MySQL 5.7](#MySQL)
 
 ## Usage
 ```bash
