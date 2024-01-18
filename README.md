@@ -7,6 +7,7 @@ Pilotoapi is a simple API written in [Go](#Golang) to manage products from [MySQ
 - [Docker](#Docker)
 - [Docker Compose](#Docker)
 - [MySQL 5.7](#MySQL)
+- [Postman](#Postman)
 
 ## Usage
 ```bash
@@ -22,3 +23,5 @@ make run
 ### PUT /api/product/{id}
 ### DELETE /api/product/{id}
 ```
+## Postman
+- In the root of the project, there is postman collection that can be import to your own environment to use routes
