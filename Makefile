@@ -1,9 +1,3 @@
-DATABASE_NAME=app
-DB_USR=root
-DB_PWD=root
-DB_HOST=localhost
-DB_PORT=3306
-
 lint:
 	@echo "running lint"
 	@golangci-lint run ./...
