@@ -9,3 +9,9 @@ external:
 
 run:
 	@go run cmd/application/main.go
+
+build:
+	@echo "building..."
+	mkdir -p ./bin
+	rm -rf ./bin/*
+	go build -o bin/pilotoAPI ./cmd/application
